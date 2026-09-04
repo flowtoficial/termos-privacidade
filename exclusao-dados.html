@@ -1,0 +1,146 @@
+<title>Exclusão de Dados do Usuário — FLOWT</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+  :root{
+    --bg:#FBFAFD; --surface:#FFFFFF; --surface-2:#F5F1FA;
+    --ink:#191521; --ink-muted:#5B5566; --ink-faint:#8B85999;
+    --line:#E6E0F0; --line-strong:#D4CBE6;
+    --purple:#A230D0; --purple-dark:#7A249C; --purple-bg:#F1E1F8;
+    --shadow: 0 1px 2px rgba(20,10,35,0.04), 0 8px 24px -12px rgba(20,10,35,0.12);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#141019; --surface:#1C1626; --surface-2:#241C31;
+      --ink:#EEEAF4; --ink-muted:#B3ABC4; --ink-faint:#78708C;
+      --line:#332A44; --line-strong:#453A5C;
+      --purple:#C065E8; --purple-dark:#E3B8F5; --purple-bg:#2E2140;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#141019; --surface:#1C1626; --surface-2:#241C31;
+    --ink:#EEEAF4; --ink-muted:#B3ABC4; --ink-faint:#78708C;
+    --line:#332A44; --line-strong:#453A5C;
+    --purple:#C065E8; --purple-dark:#E3B8F5; --purple-bg:#2E2140;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.6);
+  }
+
+  *{ box-sizing: border-box; }
+  body{ background: var(--bg); color: var(--ink); font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+
+  header{
+    background: var(--purple); padding: 44px 28px 64px; position: relative; overflow: hidden;
+  }
+  header::after{ content:""; position:absolute; right:-70px; top:-70px; width:260px; height:260px; border-radius:50%; background:rgba(255,255,255,0.08); }
+  .header-inner{ max-width: 760px; margin: 0 auto; position: relative; z-index: 2; }
+  .logo-badge{
+    display:inline-flex; align-items:center; justify-content:center; width:60px; height:60px;
+    background:#FFFFFF; border-radius:16px; box-shadow: 0 8px 20px -8px rgba(0,0,0,0.35); margin-bottom:22px;
+  }
+  .logo-badge svg{ width:34px; height:34px; }
+  h1{ font-family:'IBM Plex Mono', ui-monospace, monospace; font-weight:700; font-size:clamp(26px,4vw,36px); color:#FFFFFF; margin:0; letter-spacing:-0.01em; text-wrap:balance; }
+  .updated{ color:rgba(255,255,255,0.85); font-size:13.5px; margin-top:10px; font-family:'IBM Plex Mono', ui-monospace, monospace; }
+
+  main{ max-width: 760px; margin: -30px auto 0; padding: 0 28px 80px; position: relative; z-index: 3; }
+  .intro-card{
+    background: var(--surface); border-radius: 16px; box-shadow: var(--shadow); border:1px solid var(--line);
+    padding: 26px 28px; margin-bottom: 40px; font-size:15px; line-height:1.65; color: var(--ink);
+  }
+  .intro-card b{ color: var(--purple-dark); }
+
+  section{ margin-bottom: 38px; }
+  h2{
+    font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:19px; font-weight:700;
+    color: var(--ink); margin: 0 0 14px; display:flex; align-items:center; gap:10px;
+  }
+  .num-badge{
+    display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px;
+    border-radius:8px; background: var(--purple-bg); color: var(--purple-dark); font-size:13px; font-weight:700; flex:none;
+  }
+  p{ font-size:14.5px; line-height:1.7; color: var(--ink); margin: 0 0 12px; }
+  p.muted{ color: var(--ink-muted); }
+  ul{ margin: 0 0 12px; padding-left: 20px; display:flex; flex-direction:column; gap:6px; }
+  li{ font-size:14.5px; line-height:1.6; color: var(--ink); }
+  ol{ margin: 0 0 12px; padding-left: 20px; display:flex; flex-direction:column; gap:8px; }
+  ol li{ font-size:14.5px; line-height:1.6; color: var(--ink); }
+
+  .card-list{ display:flex; flex-direction:column; gap:10px; margin-top:10px; }
+  .mini-card{
+    background: var(--surface); border:1px solid var(--line); border-radius:12px; padding:14px 16px;
+    display:flex; gap:12px; align-items:flex-start;
+  }
+  .mini-card .dot{ width:8px; height:8px; border-radius:50%; background: var(--purple); margin-top:6px; flex:none; }
+  .mini-card div{ font-size:14px; line-height:1.55; }
+  .mini-card b{ display:block; font-size:14px; margin-bottom:2px; }
+
+  .contact-box{
+    background: var(--purple-bg); border-radius: 16px; padding: 22px 26px; margin-top: 8px;
+  }
+  .contact-box h3{ font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:14px; font-weight:700; color: var(--purple-dark); margin:0 0 8px; letter-spacing:0.03em; text-transform:uppercase; }
+  .contact-box a{ color: var(--purple-dark); font-weight:600; text-decoration:none; }
+  .contact-box a:hover{ text-decoration:underline; }
+  .contact-box p{ margin-bottom: 6px; }
+
+  footer{ border-top:1px solid var(--line); padding-top:20px; margin-top:50px; font-size:12px; color: var(--ink-faint); line-height:1.6; }
+</style>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-badge">
+      <svg viewBox="0 0 100 100" fill="none">
+        <path d="M75 20 L45 55 L28 45 L14 62 L38 68 L48 90 L58 72 L86 34 Z" fill="#A230D0"/>
+      </svg>
+    </div>
+    <h1>Exclusão de Dados do Usuário</h1>
+    <div class="updated">FLOWT · última atualização: setembro de 2026</div>
+  </div>
+</header>
+
+<main>
+  <div class="intro-card">
+    A <b>FLOWT</b> respeita o direito de qualquer pessoa de solicitar a exclusão dos seus dados pessoais tratados por nós ou pelos agentes de atendimento automatizado que desenvolvemos para nossos clientes. Esta página explica quem pode solicitar, como solicitar e o que acontece depois do pedido, em conformidade com a Lei Geral de Proteção de Dados (LGPD).
+  </div>
+
+  <section>
+    <h2><span class="num-badge">1</span>Quem pode solicitar</h2>
+    <div class="card-list">
+      <div class="mini-card"><span class="dot"></span><div><b>Usuários finais</b>Qualquer pessoa que já trocou mensagens com um agente de atendimento desenvolvido ou operado pela FLOWT, por exemplo via WhatsApp.</div></div>
+      <div class="mini-card"><span class="dot"></span><div><b>Clientes contratantes</b>Empresas que contrataram a FLOWT e seus representantes, quanto aos dados tratados no âmbito da prestação do serviço.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num-badge">2</span>Como solicitar</h2>
+    <p>Envie uma solicitação para <b>flowtoficial@gmail.com</b>, informando o número de telefone ou e-mail usado na conversa, para que possamos localizar e excluir os dados corretos.</p>
+    <p class="muted">Não é necessário justificar o pedido. Basta a solicitação para que o processo seja iniciado.</p>
+  </section>
+
+  <section>
+    <h2><span class="num-badge">3</span>Prazo de atendimento</h2>
+    <p>Confirmamos o recebimento do pedido em até <b>2 dias úteis</b> e concluímos a exclusão em até <b>15 dias corridos</b>, prazo alinhado à LGPD. Quando o pedido envolve dados tratados por um cliente contratante específico, podemos encaminhar a solicitação a esse cliente para que ele também proceda com a exclusão em seus próprios sistemas.</p>
+  </section>
+
+  <section>
+    <h2><span class="num-badge">4</span>O que é excluído</h2>
+    <ul>
+      <li>Histórico de conversas e mensagens armazenadas em nossos fluxos de automação e bancos de dados</li>
+      <li>Dados de identificação e contato associados à solicitação (nome, número de telefone, e-mail)</li>
+      <li>Informações fornecidas voluntariamente durante o atendimento (ex.: endereço, preferências)</li>
+    </ul>
+    <p class="muted">Dados que a Meta/WhatsApp mantém em sua própria infraestrutura, como logs de entrega de mensagens, seguem a política de retenção da própria plataforma e não estão sob nosso controle direto. Também podemos reter informações estritamente necessárias para cumprir obrigações legais, fiscais ou contratuais, pelo prazo exigido em lei.</p>
+  </section>
+
+  <section>
+    <h2><span class="num-badge">5</span>Fale com a gente</h2>
+    <p>Para solicitar a exclusão dos seus dados ou tirar dúvidas sobre este processo, entre em contato:</p>
+    <div class="contact-box">
+      <h3>Contato de privacidade</h3>
+      <p>E-mail: <a href="mailto:flowtoficial@gmail.com">flowtoficial@gmail.com</a></p>
+    </div>
+  </section>
+
+  <footer>
+    Esta página pode ser atualizada periodicamente para refletir mudanças em nossos processos ou na legislação aplicável. Consulte também nossa <a href="index.html" style="color:var(--purple-dark);">Política de Privacidade</a>.
+  </footer>
+</main>
