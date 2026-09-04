@@ -1,0 +1,169 @@
+<title>Política de Privacidade — FLOWT</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+  :root{
+    --bg:#FBFAFD; --surface:#FFFFFF; --surface-2:#F5F1FA;
+    --ink:#191521; --ink-muted:#5B5566; --ink-faint:#8B85999;
+    --line:#E6E0F0; --line-strong:#D4CBE6;
+    --purple:#A230D0; --purple-dark:#7A249C; --purple-bg:#F1E1F8;
+    --shadow: 0 1px 2px rgba(20,10,35,0.04), 0 8px 24px -12px rgba(20,10,35,0.12);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#141019; --surface:#1C1626; --surface-2:#241C31;
+      --ink:#EEEAF4; --ink-muted:#B3ABC4; --ink-faint:#78708C;
+      --line:#332A44; --line-strong:#453A5C;
+      --purple:#C065E8; --purple-dark:#E3B8F5; --purple-bg:#2E2140;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#141019; --surface:#1C1626; --surface-2:#241C31;
+    --ink:#EEEAF4; --ink-muted:#B3ABC4; --ink-faint:#78708C;
+    --line:#332A44; --line-strong:#453A5C;
+    --purple:#C065E8; --purple-dark:#E3B8F5; --purple-bg:#2E2140;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.6);
+  }
+
+  *{ box-sizing: border-box; }
+  body{ background: var(--bg); color: var(--ink); font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+
+  header{
+    background: var(--purple); padding: 44px 28px 64px; position: relative; overflow: hidden;
+  }
+  header::after{ content:""; position:absolute; right:-70px; top:-70px; width:260px; height:260px; border-radius:50%; background:rgba(255,255,255,0.08); }
+  .header-inner{ max-width: 760px; margin: 0 auto; position: relative; z-index: 2; }
+  .logo-badge{
+    display:inline-flex; align-items:center; justify-content:center; width:60px; height:60px;
+    background:#FFFFFF; border-radius:16px; box-shadow: 0 8px 20px -8px rgba(0,0,0,0.35); margin-bottom:22px;
+  }
+  .logo-badge svg{ width:34px; height:34px; }
+  h1{ font-family:'IBM Plex Mono', ui-monospace, monospace; font-weight:700; font-size:clamp(26px,4vw,36px); color:#FFFFFF; margin:0; letter-spacing:-0.01em; text-wrap:balance; }
+  .updated{ color:rgba(255,255,255,0.85); font-size:13.5px; margin-top:10px; font-family:'IBM Plex Mono', ui-monospace, monospace; }
+
+  main{ max-width: 760px; margin: -30px auto 0; padding: 0 28px 80px; position: relative; z-index: 3; }
+  .intro-card{
+    background: var(--surface); border-radius: 16px; box-shadow: var(--shadow); border:1px solid var(--line);
+    padding: 26px 28px; margin-bottom: 40px; font-size:15px; line-height:1.65; color: var(--ink);
+  }
+  .intro-card b{ color: var(--purple-dark); }
+
+  section{ margin-bottom: 38px; }
+  h2{
+    font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:19px; font-weight:700;
+    color: var(--ink); margin: 0 0 14px; display:flex; align-items:center; gap:10px;
+  }
+  .num-badge{
+    display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px;
+    border-radius:8px; background: var(--purple-bg); color: var(--purple-dark); font-size:13px; font-weight:700; flex:none;
+  }
+  p{ font-size:14.5px; line-height:1.7; color: var(--ink); margin: 0 0 12px; }
+  p.muted{ color: var(--ink-muted); }
+  ul{ margin: 0 0 12px; padding-left: 20px; display:flex; flex-direction:column; gap:6px; }
+  li{ font-size:14.5px; line-height:1.6; color: var(--ink); }
+
+  .card-list{ display:flex; flex-direction:column; gap:10px; margin-top:10px; }
+  .mini-card{
+    background: var(--surface); border:1px solid var(--line); border-radius:12px; padding:14px 16px;
+    display:flex; gap:12px; align-items:flex-start;
+  }
+  .mini-card .dot{ width:8px; height:8px; border-radius:50%; background: var(--purple); margin-top:6px; flex:none; }
+  .mini-card div{ font-size:14px; line-height:1.55; }
+  .mini-card b{ display:block; font-size:14px; margin-bottom:2px; }
+
+  .contact-box{
+    background: var(--purple-bg); border-radius: 16px; padding: 22px 26px; margin-top: 8px;
+  }
+  .contact-box h3{ font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:14px; font-weight:700; color: var(--purple-dark); margin:0 0 8px; letter-spacing:0.03em; text-transform:uppercase; }
+  .contact-box a{ color: var(--purple-dark); font-weight:600; text-decoration:none; }
+  .contact-box a:hover{ text-decoration:underline; }
+
+  footer{ border-top:1px solid var(--line); padding-top:20px; margin-top:50px; font-size:12px; color: var(--ink-faint); line-height:1.6; }
+</style>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-badge">
+      <svg viewBox="0 0 100 100" fill="none">
+        <path d="M75 20 L45 55 L28 45 L14 62 L38 68 L48 90 L58 72 L86 34 Z" fill="#A230D0"/>
+      </svg>
+    </div>
+    <h1>Política de Privacidade</h1>
+    <div class="updated">FLOWT · última atualização: setembro de 2026</div>
+  </div>
+</header>
+
+<main>
+  <div class="intro-card">
+    Na <b>FLOWT</b>, a privacidade e a proteção de dados pessoais são compromissos que assumimos com todos que interagem com nossos produtos — sejam as empresas que contratam nossos serviços, sejam as pessoas que conversam com os agentes de atendimento que desenvolvemos. Esta política explica, de forma direta, quais dados tratamos, por quê, com quem podem ser compartilhados e quais direitos você tem, em conformidade com a Lei Geral de Proteção de Dados (LGPD).
+  </div>
+
+  <section>
+    <h2><span class="num-badge">1</span>De quem são os dados pessoais</h2>
+    <p>Esta política se aplica a duas frentes:</p>
+    <div class="card-list">
+      <div class="mini-card"><span class="dot"></span><div><b>Usuários finais</b>Pessoas que trocam mensagens com um agente de atendimento automatizado desenvolvido ou operado pela FLOWT, por exemplo via WhatsApp.</div></div>
+      <div class="mini-card"><span class="dot"></span><div><b>Clientes contratantes</b>Empresas que contratam a FLOWT, seus representantes legais e colaboradores envolvidos na operação do serviço.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num-badge">2</span>Quais dados tratamos</h2>
+    <p>Dependendo do agente e da finalidade combinada com o negócio contratante, podemos tratar:</p>
+    <ul>
+      <li>Dados de identificação e contato: nome, número de telefone, e-mail</li>
+      <li>Conteúdo das mensagens trocadas durante o atendimento</li>
+      <li>Dados fornecidos voluntariamente para viabilizar uma solicitação específica — por exemplo, endereço de entrega, dados de um pedido ou preferências de atendimento</li>
+      <li>Metadados técnicos da conversa, como horário e status de entrega das mensagens</li>
+    </ul>
+    <p class="muted">Nunca solicitamos, pelo chat, dados financeiros completos (como número de cartão) ou documentos de identidade completos. Quando esse tipo de informação é necessário, direcionamos para um canal seguro e específico para isso.</p>
+  </section>
+
+  <section>
+    <h2><span class="num-badge">3</span>Por que utilizamos esses dados</h2>
+    <ul>
+      <li>Para viabilizar o atendimento e responder às solicitações feitas durante a conversa</li>
+      <li>Para processar pedidos, agendamentos ou solicitações que exijam repasse a um setor específico do negócio contratante — por exemplo, um endereço de entrega encaminhado ao setor de logística</li>
+      <li>Para melhorar a qualidade do atendimento automatizado</li>
+      <li>Para cumprir obrigações legais e contratuais</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num-badge">4</span>Com quem podemos compartilhar</h2>
+    <p>O compartilhamento varia de acordo com o agente e a solicitação feita pelo usuário, e pode incluir:</p>
+    <ul>
+      <li>A empresa contratante e os setores internos dela diretamente envolvidos no atendimento da solicitação (ex.: logística, financeiro, suporte)</li>
+      <li>A Meta/WhatsApp, como plataforma sobre a qual o atendimento acontece</li>
+      <li>Provedores de infraestrutura, automação e inteligência artificial que apoiam o funcionamento do agente</li>
+    </ul>
+    <p class="muted">Não compartilhamos dados pessoais para finalidades diferentes daquela para a qual foram coletados, nem vendemos dados a terceiros.</p>
+  </section>
+
+  <section>
+    <h2><span class="num-badge">5</span>Seus direitos</h2>
+    <p>Nos termos da LGPD, você pode solicitar a qualquer momento:</p>
+    <ul>
+      <li>Confirmação de que tratamos seus dados, e acesso a eles</li>
+      <li>Correção de dados incompletos, inexatos ou desatualizados</li>
+      <li>Anonimização, bloqueio ou eliminação de dados desnecessários</li>
+      <li>Portabilidade dos dados a outro fornecedor</li>
+      <li>Revogação do consentimento e eliminação dos dados tratados com base nele</li>
+      <li>Informação sobre com quem seus dados foram compartilhados</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num-badge">6</span>Fale com a gente</h2>
+    <p>Para exercer seus direitos, tirar dúvidas sobre esta política ou sobre o tratamento dos seus dados, entre em contato com nosso encarregado:</p>
+    <div class="contact-box">
+      <h3>Contato de privacidade</h3>
+      <a href="mailto:flowtoficial@gmail.com">flowtoficial@gmail.com</a>
+    </div>
+  </section>
+
+  <footer>
+    Esta política pode ser atualizada periodicamente para refletir mudanças em nossos serviços ou na legislação aplicável. Recomendamos revisá-la de tempos em tempos.
+  </footer>
+</main>
